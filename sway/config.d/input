@@ -1,0 +1,15 @@
+input type:keyboard {
+   xkb_layout us
+   xkb_options altgr-intl
+}
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+    # get correct input with swaymsg -t get_inputs
+    xkb_layout ch
+}
+
+input type:touchpad {
+      dwt disable
+      tap enabled
+      natural_scroll enabled
+}

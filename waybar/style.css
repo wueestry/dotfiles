@@ -47,8 +47,9 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
-#memory,
+#custom-weather,
 #custom-power,
+#custom-weather,
 #battery,
 #backlight,
 #pulseaudio,
@@ -75,9 +76,12 @@ window#waybar.hidden {
   color: #1793d1;
 }
 
-#memory {
-  background-color: #fab387;
+#custom-weather,
+#custom-todo {
+  color: #cdd6f4;
+  background-color: #1e1e2e;
 }
+
 #battery {
   background-color: #f38ba8;
 }
@@ -107,13 +111,21 @@ window#waybar.hidden {
   background-color: #fab387;
 }
 
-#pulseaudio {
+#pulseaudio.microphone {
   background-color: #f9e2af;
+}
+
+#pulseaudio {
+  background-color: #a6e3a1;
 }
 
 #network {
   background-color: #94e2d5;
   padding-right: 17px;
+}
+
+#clock.date {
+  background-color: #89b4fa;
 }
 
 #clock {

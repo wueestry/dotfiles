@@ -23,6 +23,8 @@ if [[ $distro == "focal" ]]; then
   # ROS Noetic config
   source /opt/ros/noetic/setup.zsh
   source ~/dev/catkin_ws/devel/setup.zsh
+
+  alias rviz="QT_QPA_PLATFORM=xcb rviz"
 elif [[ $distro == "jammy" ]]; then
   # ROS Humble config
   source /opt/ros/humble/setup.zsh

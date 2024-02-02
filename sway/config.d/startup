@@ -1,0 +1,5 @@
+# Start Polkit
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Start Dunst
+exec_always dunst

@@ -5,4 +5,5 @@ Add personal dotfiles
 ## Installation
 
 1. Clone repository
-2. Create symbolic links from each folder to the corresponding `~\.config` folder
+2. Install stow
+3. Run `stow <package_name>` to link config files

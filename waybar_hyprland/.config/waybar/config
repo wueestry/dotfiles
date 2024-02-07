@@ -6,7 +6,7 @@
     "spacing": 0,
     "height": 34,
     "modules-left": [
-        "custom/logo",
+//        "custom/logo",
         "hyprland/workspaces",
         "custom/weather",
         "tray"
@@ -32,26 +32,28 @@
     },
     "hyprland/workspaces": {
         "on-click": "activate",
-        "format": "{name}",
+        "format": "{icon}",
         "all-outputs": true,
         "format-icons": {
-            "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9"
+//            "default": "",
+            "1": " ₁",
+            "2": " ₂",
+            "3": " ₃",
+            "4": "󰖬 ₄",
+            "5": " ₅",
+            "6": " ₆",
+            "7": "󰈙 ₇",
+            "8": " ₈",
+            "9": "󱤙 ₉",
+            "10": " ₁₀"
         },
         "persistent_workspaces": {
             "1": [],
             "2": [],
             "3": [],
             "4": [],
-            "5": []
+            "5": [],
+            "6": []
         }
     },
     "tray": {
@@ -108,9 +110,9 @@
         "on-scroll-down": "brightnessctl s +1%"
     },
     "custom/logo": {
-        "format": "",
+        "format": "",
         "tooltip": false,
-        "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
+        "on-click": "~/.config/rofi/launcher.sh &"
     },
     "custom/weather": {
         "tooltip": true,

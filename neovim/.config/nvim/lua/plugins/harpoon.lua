@@ -13,12 +13,17 @@ return {
             "<cmd>lua require('harpoon.mark').add_file()<cr>",
             { desc = "Mark file with harpoon" }
         )
-        keymap.set("n", "<leader>hn", "<cmd>lua require('harpoon.ui').nav_next()<cr>", { desc = "Go to next harpoon mark" })
+        keymap.set(
+            "n",
+            "<leader>hn",
+            "<cmd>lua require('harpoon.ui').nav_next()<cr>",
+            { desc = "Go to next harpoon mark" }
+        )
         keymap.set(
             "n",
             "<leader>hp",
             "<cmd>lua require('harpoon.ui').nav_prev()<cr>",
             { desc = "Go to previous harpoon mark" }
         )
-  end
+    end,
 }

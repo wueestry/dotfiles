@@ -31,6 +31,9 @@ elif [[ $distro == "jammy" ]]; then
   source ~/dev/ros2_ws/install/setup.zsh
 fi
 
+alias pyvenv-create="virtualenv env"
+alias pyvenv-activate="source env/bin/activate"
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

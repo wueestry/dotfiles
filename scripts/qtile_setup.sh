@@ -15,7 +15,7 @@ bin/pip install qtile-extras/.
 
 cd
 
-ln -Sn .local/share/qtile_env/bin/qtile .local/bin/qtile
+sudo ln .local/share/qtile_env/bin/qtile /usr/local/bin/qtile
 
 mkdir -p /usr/share/xsessions
-ln -Sn .config/qtile/qtile.desktop /usr/share/xsessions/qtile.desktop
+sudo ln .config/qtile/qtile.desktop /usr/share/xsessions/qtile.desktop

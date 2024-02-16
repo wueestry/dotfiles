@@ -38,7 +38,7 @@ import colors
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 terminal = "kitty"      # My terminal of choice
 browser = "flatpak run com.brave.Browser"       # My browser of choice
-menu = "~/.config/rofi/launcher.sh"  # Run rofi launcher from script 
+menu = "bash ~/.config/rofi/launcher.sh"  # Run rofi launcher from script 
 
 # Allows you to input a name when adding treetab section.
 @lazy.layout.function

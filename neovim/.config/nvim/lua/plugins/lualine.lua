@@ -17,6 +17,9 @@ return {
                     { "filetype" },
                 },
             },
+            options = {
+                theme = "catppuccin",
+            },
         })
     end,
 }

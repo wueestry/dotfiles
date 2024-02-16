@@ -4,4 +4,4 @@ lxsession &
 picom --daemon &
 nm-applet
 
-xargs xwallpaper --stretch < ~/.config/qtile/wallpaper.png
+xargs xwallpaper --stretch < ~/.config/qtile/assets/wallpaper.png

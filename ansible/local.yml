@@ -1,11 +1,5 @@
 - hosts: localhost
-  pre-tasks:
-    - name: Update Apt
-      become: true
-      apt:
-        force_apt_get: true
-        update_cache: true
-        state: present
   tasks:
+    - include_vars: vars/snap.yml
     - include: tasks/snap/remove-snapd.yml
     - include: tasks/zsh.yml

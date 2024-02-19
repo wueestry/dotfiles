@@ -1,0 +1,10 @@
+- name: Install ZSH
+  ansible.builtin.apt:
+    name: zsh
+    state: present
+- name: Change shell to zsh
+  ansible.builtin.command: usermod --shell /bin/zsh {{ ansible_env.USER }}
+  become: true
+  changed_when: false
+- name: Set dotfiles
+  ansible.builtin.command: stow zsh

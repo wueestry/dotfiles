@@ -1,0 +1,14 @@
+- name: Install system packages
+  become: true
+  apt:
+    name: ["build-essential", "cmake", "pkg-config", "libpthread-stubs0-dev", "unzip", "fzf", "stow", "curl"]
+
+- name: Install python packages
+  become: true
+  apt:
+    name: ["python3-pip", "python3-venv", "virtualenv"]
+
+- name: Install npm for neovim
+  become: true
+  apt:
+    name: ["npm"]

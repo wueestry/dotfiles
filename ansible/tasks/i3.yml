@@ -1,0 +1,17 @@
+- name: Install core packages
+  become: true
+  apt:
+    name: [ "acpi", "alsa-utils", "pulseaudio", "xorg", "xinit" ]
+
+- name: Install i3 packages
+  become: true
+  apt:
+    name: [ "sddm","kitty", "btop", "dunst", "feh", "i3", "i3lock", "i3lock-fancy", "libnotify-bin", "light", "mpc", "mpd", "nautilus", "picom", "polybar", "ranger", "rofi", "scrot", "slop", "xclip" ]
+
+- name: Install fonts
+  become: true
+  apt:
+    name: [ "fonts-noto", "fonts-noto-cjk" ]
+
+- name: Setup home directory
+  command: xdg-user-dirs-update

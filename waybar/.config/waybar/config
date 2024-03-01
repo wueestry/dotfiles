@@ -1,0 +1,165 @@
+{
+    "layer": "top",
+    "position": "top",
+    "fixed-center": true,
+    "gtk-layer-shell": true,
+    "spacing": 0,
+    "height": 34,
+    "modules-left": [
+//        "custom/logo",
+        "hyprland/workspaces",
+        "custom/weather",
+        "tray"
+    ],
+    "modules-center": [],
+    "modules-right": [
+        "battery",
+        "backlight",
+        "pulseaudio#microphone",
+        "pulseaudio",
+        "network",
+        "clock#date",
+        "clock",
+        "custom/power"
+    ],
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-right": "fullscreen",
+        "icon-theme": "WhiteSur",
+        "icon-size": 25,
+        "tooltip-format": "{title}"
+    },
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "all-outputs": true,
+        "format-icons": {
+//            "default": "",
+            "1": " ₁",
+            "2": " ₂",
+            "3": " ₃",
+            "4": "󰖬 ₄",
+            "5": " ₅",
+            "6": " ₆",
+            "7": "󰈙 ₇",
+            "8": " ₈",
+            "9": "󱤙 ₉",
+            "10": " ₁₀"
+        },
+        "persistent_workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": []
+        }
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "tooltip": false,
+        "format": "󱑎 {:%H:%M}"
+    },
+    "clock#date": {
+        "format": "󰃶 {:%a %d %b}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "network": {
+        "format-wifi" : "{icon}",
+        "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
+        "format-ethernet": "󰀂",
+	    "format-alt" : "󱛇",
+        "format-disconnected" : "󰖪",
+	    "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+	    "tooltip-format-disconnected": "Disconnected",
+	    "interval": 5,
+	    "nospacing": 1,
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "󰂰",
+        "nospacing": 1,
+        "tooltip-format": "Volume : {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "headphone": "",
+            "default": ["󰖀","󰕾",""]
+        },
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -d  1",
+        "on-scroll-down": "pamixer -i 1"
+    },
+    "pulseaudio#microphone": {
+        "tooltip": false,
+        "format": "{format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -d 1",
+        "on-scroll-down": "pamixer --default-source -i 1",
+    },
+    "backlight":{
+        "tooltip": false,
+        "format": "{icon} {percent}%",
+        "format-icons": [ "󰋙","󰫃","󰫄","󰫅","󰫆","󰫇","󰫈" ],
+        "on-scroll-up": "brightnessctl s 1%-",
+        "on-scroll-down": "brightnessctl s +1%"
+    },
+    "custom/logo": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/launcher.sh &"
+    },
+    "custom/weather": {
+        "tooltip": true,
+        "format": "{}",
+        "interval":30,
+        "exec": "~/.config/waybar/scripts/waybar-wttr.py",
+        "return-type": "json"
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": {
+            "charging": [
+                "󰢜",
+                "󰂆",
+                "󰂇",
+                "󰂈",
+                "󰢝",
+                "󰂉",
+                "󰢞",
+                "󰂊",
+                "󰂋",
+                "󰂅"
+            ],
+            "default": [
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
+            ]
+        },
+        "format-full": "Charged ",
+        "interval": 5,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "󰤆",
+        "tooltip": false,
+        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh &"
+    }
+}

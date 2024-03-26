@@ -114,6 +114,7 @@ bindsym $mod+comma move workspace to output right
 # run rofi programs
 # bindsym $mod+a exec "rofi -show window -no-default-config -config ~/.config/rofi/main.rasi"
 bindsym $mod+space exec "~/.config/rofi/launcher.sh"
+bindsym $mod+x exec "~/.config/rofi/powermenu.sh"
 # bindsym $mod+s exec "rofi -show drun -no-default-config -config ~/.config/rofi/full_screen.rasi"
 # bindsym $mod+z exec "rofi -show  -modi ':rofi-bookmarks' -no-default-config -config ~/.config/rofi/main.rasi"
 # bindsym $mod+x exec "rofi-powermenu"

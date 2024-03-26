@@ -1,0 +1,19 @@
+- name: Install required fonts
+  become: true
+  apt:
+    name: [ "fonts-jetbrains-mono", "fonts-noto", "fonts-noto-cjk" ]
+
+- name: Download MesloLGS
+  become: false
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Meslo.zip
+    dest: $HOME/Meslo.zip
+
+- name: Create .fonts dir
+  shell: mkdir -p $HOME/.fonts
+
+- name: Unzip and install MesloLGS
+  shell: unzip $HOME/Meslo.zip -d $HOME/Meslo && mv $HOME/Meslo/* $HOME/.fonts
+
+- name: Clean up
+  shell: rm $HOME/Meslo.zip && rm -rf $HOME/Meslo

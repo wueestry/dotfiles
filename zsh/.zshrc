@@ -14,25 +14,28 @@ bindkey -v
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/ryan/.zshrc'
 
+PATH=$HOME/.cargo/bin:$PATH
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-distro=$(lsb_release -sc)
-if [[ $distro == "focal" ]]; then
-  # ROS Noetic config
-  source /opt/ros/noetic/setup.zsh
-  source ~/dev/catkin_ws/devel/setup.zsh
-
-  alias rviz="QT_QPA_PLATFORM=xcb rviz"
-elif [[ $distro == "jammy" ]]; then
-  # ROS Humble config
-  source /opt/ros/humble/setup.zsh
-  source ~/dev/ros2_ws/install/setup.zsh
-fi
+#distro=$(lsb_release -sc)
+#if [[ $distro == "focal" ]]; then
+#  # ROS Noetic config
+#  source /opt/ros/noetic/setup.zsh
+#  source ~/dev/catkin_ws/devel/setup.zsh
+#
+#  alias rviz="QT_QPA_PLATFORM=xcb rviz"
+#elif [[ $distro == "jammy" ]]; then
+#  # ROS Humble config
+#  source /opt/ros/humble/setup.zsh
+#  source ~/dev/ros2_ws/install/setup.zsh
+#fi
 
 alias pyvenv-create="virtualenv env"
 alias pyvenv-activate="source env/bin/activate"
+alias humble="source /opt/ros/humble/setup.zsh && source $HOME/dev/ros2_ws/install/setup.zsh"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -41,3 +44,4 @@ source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+

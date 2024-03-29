@@ -7,3 +7,6 @@
 [submodule "zsh/.zsh/zsh-syntax-highlighting"]
 	path = zsh/.zsh/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "i3/.config/i3/i3-alternating-layout"]
+	path = i3/.config/i3/i3-alternating-layout
+	url = https://github.com/olemartinorg/i3-alternating-layout.git

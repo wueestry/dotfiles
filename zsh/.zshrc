@@ -11,6 +11,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+PATH=$HOME/.cargo/bin:$PATH
 
 # Alias
 alias pyvenv-create="virtualenv env"

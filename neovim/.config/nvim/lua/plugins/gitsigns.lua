@@ -19,7 +19,6 @@ return {
       map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
       map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
       map("v", "<leader>hs", function()
-
         gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end, "Stage hunk")
       map("v", "<leader>hr", function()
@@ -29,11 +28,9 @@ return {
       map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
       map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
 
-
       map("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
 
       map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-
 
       map("n", "<leader>hb", function()
         gs.blame_line({ full = true })
@@ -44,7 +41,6 @@ return {
       map("n", "<leader>hD", function()
         gs.diffthis("~")
       end, "Diff this ~")
-
 
       -- Text object
 

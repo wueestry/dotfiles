@@ -8,7 +8,6 @@ if not vim.loop.fs_stat(lazypath) then
     "--branch=stable", -- latest stable release
     lazypath,
   })
-
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -18,7 +17,7 @@ require("config.keymaps")
 
 local opts = {
   defaults = {
-    lazy = false,		
+    lazy = false,
   },
   install = {
     colorscheme = { "catppuccin" },

@@ -1,6 +1,5 @@
 local opt = vim.opt
 
-
 -- Tab / Indentation
 opt.tabstop = 4
 
@@ -31,7 +30,6 @@ opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.scrolloff = 8
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
-
 
 opt.updatetime = 50
 -- folds

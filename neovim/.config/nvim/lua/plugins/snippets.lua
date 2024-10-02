@@ -10,7 +10,5 @@ return {
     event = "VeryLazy",
     --adding additional snippets
     dependencies = { "rafamadriz/friendly-snippets" },
-
   },
-
 }

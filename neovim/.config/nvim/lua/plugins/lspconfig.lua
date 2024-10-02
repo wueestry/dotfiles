@@ -94,7 +94,15 @@ return {
           flags = lsp_flags,
           cmd = { "clangd", "--background-index" },
           single_file_support = true,
-          root_dir = lspconfig.util.root_pattern(".clangd", ".clang-tidy", ".clang-format", "compile_commands.json", "compile_flags.txt", "configure.ac", ".git"),
+          root_dir = lspconfig.util.root_pattern(
+            ".clangd",
+            ".clang-tidy",
+            ".clang-format",
+            "compile_commands.json",
+            "compile_flags.txt",
+            "configure.ac",
+            ".git"
+          ),
         })
       end,
       ["lua_ls"] = function()

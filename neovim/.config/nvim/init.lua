@@ -1,4 +1,11 @@
 -- Enables the experimental lua module loader to improve startup time
-vim.loader.enable()
+if vim.loader then
+	vim.loader.enable()
+end
 
-require("config")
+_G.dd = function(...)
+	require('util.debug').dump(...)
+end
+vim.print = _G.dd
+
+require('config')

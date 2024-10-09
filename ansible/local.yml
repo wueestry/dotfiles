@@ -1,2 +1,0 @@
-- name: "Default config file to build local system"
-  hosts: localhost

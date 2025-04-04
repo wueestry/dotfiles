@@ -56,3 +56,5 @@ alias docker-clean=' \
   docker network prune -f ; \
   docker volume prune -f '
 eval "$(starship init zsh)"
+
+if [ -e /home/ryan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ryan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

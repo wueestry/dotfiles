@@ -1,1 +1,2 @@
-zsh/.zsh/histfile
+zsh/.config/zsh/histfile
+tmux/.config/tmux/plugins/*

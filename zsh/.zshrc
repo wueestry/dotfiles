@@ -21,6 +21,12 @@ else
   alias l="ls -CF"
 fi
 
+if command -v nala &> /dev/null; then
+  alias apt="sudo nala"
+elif command -v apt &> /dev/null; then
+  alias apt="sudo apt"
+fi
+
 if command -v nvim &> /dev/null; then
     export EDITOR=nvim
     export VISUAL=nvim

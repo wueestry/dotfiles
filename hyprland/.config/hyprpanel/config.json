@@ -1,0 +1,88 @@
+{
+  "theme.font.name": "JetBrains Mono NL",
+  "theme.font.style": "normal",
+  "theme.font.label": "JetBrains Mono NL",
+  "menus.clock.weather.location": "Zurich",
+  "menus.clock.weather.unit": "metric",
+  "menus.dashboard.powermenu.avatar.image": "/home/ryan/Pictures/ARIS_Nautilus_Ryan_Wuest-400x534.jpg",
+  "menus.clock.weather.key": "217c7fb4882d42e680263950250205",
+  "wallpaper.enable": false,
+  "wallpaper.image": "/home/ryan/.setup/hyprland/.config/hypr/wallpaper.png",
+  "theme.bar.transparent": true,
+  "theme.bar.buttons.style": "default",
+  "menus.clock.time.military": true,
+  "menus.clock.time.hideSeconds": true,
+  "bar.customModules.weather.unit": "metric",
+  "scalingPriority": "gdk",
+  "theme.bar.location": "top",
+  "theme.bar.floating": false,
+  "bar.autoHide": "never",
+  "theme.bar.border.location": "none",
+  "theme.bar.enableShadow": false,
+  "bar.launcher.icon": "",
+  "bar.launcher.autoDetectIcon": true,
+  "bar.workspaces.show_numbered": true,
+  "bar.workspaces.show_icons": false,
+  "bar.workspaces.showWsIcons": false,
+  "bar.workspaces.showApplicationIcons": false,
+  "bar.clock.format": "%A %d/%m/%Y  %H:%M",
+  "bar.layouts": {
+    "0": {
+      "left": [
+        "dashboard",
+        "windowtitle"
+      ],
+      "middle": [
+        "workspaces"
+      ],
+      "right": [
+        "volume",
+        "network",
+        "bluetooth",
+        "battery",
+        "systray",
+        "clock",
+        "notifications"
+      ]
+    },
+    "1": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    },
+    "2": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "windowtitle"
+      ],
+      "middle": [
+        "media"
+      ],
+      "right": [
+        "volume",
+        "clock",
+        "notifications"
+      ]
+    }
+  },
+  "menus.dashboard.stats.enable_gpu": true,
+  "menus.dashboard.shortcuts.left.shortcut1.icon": "󰈹",
+  "menus.dashboard.shortcuts.left.shortcut1.command": "flatpak run app.zen_browser.zen",
+  "menus.dashboard.shortcuts.left.shortcut3.command": "flatpak run md.obsidian.Obsidian",
+  "menus.dashboard.shortcuts.left.shortcut1.tooltip": "Zen Browser",
+  "menus.dashboard.shortcuts.left.shortcut3.icon": "",
+  "menus.dashboard.shortcuts.left.shortcut3.tooltip": "Obsidian",
+  "menus.dashboard.shortcuts.left.shortcut4.command": "exec ~/.config/rofi/scripts/launcher.sh",
+  "menus.dashboard.shortcuts.left.shortcut2.command": "kitty -- ncspot"
+}

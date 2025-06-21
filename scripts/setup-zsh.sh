@@ -1,4 +1,4 @@
-#/usr/env bash
+#!/usr/bin/env bash
 
 echo "This script sets zsh as the default shell"
 

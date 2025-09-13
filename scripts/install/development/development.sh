@@ -6,7 +6,7 @@ installTermTools() {
   "$ESCALATION_TOOL" dnf install \
     cargo clang
 
-  nix profile add nixpkgs#lazygit
+  # nix profile add nixpkgs#lazygit
 }
 
 checkEnv

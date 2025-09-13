@@ -7,7 +7,7 @@ installZsh() {
     zsh
   sudo chsh $USER
 
-  nix profile install nixpkgs#starship
+  # nix profile install nixpkgs#starship
 }
 
 checkEnv

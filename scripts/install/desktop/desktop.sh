@@ -11,6 +11,7 @@ installDesktopTools() {
     kvantum \
     qt5ct \
     qt6ct \
+    nwg-displays \
     nwg-look \
     playerctl \
     pamixer \

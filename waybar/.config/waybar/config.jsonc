@@ -12,6 +12,7 @@
   ],
   "modules-right": [
     "group/tray-expander",
+    "custom/update",
     "bluetooth",
     "network",
     "pulseaudio",
@@ -42,15 +43,24 @@
       "5": []
     }
   },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 21600
+  },
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "kitty -e btop"
+    "on-click": "$TERMINAL -e btop"
   },
   "clock": {
     "format": "{:%A %H:%M}",
     "format-alt": "{:%d %B W%V %Y}",
     "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select"
   },
   "network": {
     "format-icons": ["󰤯","󰤟","󰤢","󰤥","󰤨"],
@@ -63,7 +73,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "kitty -e nmtui"
+    "on-click": "omarchy-launch-wifi"
   },
   "battery": {
     "format": "{capacity}% {icon}",
@@ -82,6 +92,7 @@
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
     "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
     "interval": 5,
+    "on-click": "omarchy-menu power",
     "states": {
       "warning": 20,
       "critical": 10
@@ -118,7 +129,8 @@
   },
   "custom/expand-icon": {
     "format": " ",
-    "tooltip": false
+    "tooltip": false,
+    "on-click": "omarchy-menu system"
   },
   "tray": {
     "icon-size": 12,

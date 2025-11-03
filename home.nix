@@ -6,8 +6,10 @@
 
     home.packages = ( with pkgs; [
     	atuin
-	eza
-	lazygit
-	starship
+	    eza
+	    lazygit
+      ruff
+	    starship
+      zellij
     ]);
 }

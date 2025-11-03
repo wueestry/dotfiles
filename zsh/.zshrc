@@ -52,7 +52,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-# Fastfetch
 if command -v fastfetch &>/dev/null; then
   fastfetch -c $HOME/.config/fastfetch/config-mini.jsonc
 fi

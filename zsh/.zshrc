@@ -7,6 +7,7 @@ bindkey -v
 # Path
 PATH=$HOME/.cargo/bin:$PATH
 PATH=/usr/local/go/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
 
 # Alias
 alias flake-dev="nix develop --no-pure-eval"
@@ -51,10 +52,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-
-if command -v fastfetch &>/dev/null; then
-  fastfetch -c $HOME/.config/fastfetch/config-mini.jsonc
-fi
 
 # Plugins
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

@@ -46,24 +46,6 @@ return {
       img_folder = "meta/assets",
     },
 
-    -- key mappings, below are the defaults
-    mappings = {
-      -- overrides the 'gf' mapping to work on markdown/wiki links within your vault
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
-      -- toggle check-boxes
-      ["<leader>ti"] = {
-        action = function()
-          return require("obsidian").util.toggle_checkbox()
-        end,
-        opts = { buffer = true },
-      },
-    },
-
     -- Where to put new notes. Valid options are
     --  * "current_dir" - put new notes in same directory as the current buffer.
     --  * "notes_subdir" - put new notes in the default notes subdirectory.

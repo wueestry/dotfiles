@@ -4,10 +4,16 @@
 local o = vim.opt
 local g = vim.g
 
+g.mapleader = " "
+g.maplocalleader = " "
+
 -- Feature flags
 -- Set this to true if you have a Nerd Font (patched) installed.
 -- Plugins (statusline, tree, etc.) can check this flag to decide whether to show special icons.
 g.have_nerd_font = true
+
+-- Don't show the mode, since it's already in the status line
+o.showmode = false
 
 -- Appearance
 -- Enable 24-bit RGB colors in the terminal (required for many modern colorschemes).
@@ -17,7 +23,7 @@ o.background = "dark"
 -- Highlight the screen line of the cursor for better visibility.
 o.cursorline = true
 -- Reserve space for sign columns (git/diagnostics) to avoid text shifting when signs appear.
-o.signcolumn = "auto:1-2"
+o.signcolumn = "yes"
 
 -- Line numbers
 -- Show absolute line number for the cursor line.
@@ -29,7 +35,9 @@ o.relativenumber = true
 -- Enable mouse support in all modes (useful in terminal GUIs that support mouse).
 o.mouse = "a"
 -- Use the system clipboard for yank, delete, change and put operations.
-o.clipboard = "unnamedplus"
+vim.schedule(function()
+  o.clipboard = "unnamedplus"
+end)
 
 -- Tabs & indentation
 -- Use spaces instead of tab characters.
@@ -40,6 +48,9 @@ o.shiftwidth = 2
 o.tabstop = 2
 -- Enable smart indentation for C-like languages.
 o.smartindent = true
+
+-- Enable break indent
+o.breakindent = true
 
 -- Search behavior
 -- Ignore case in search patterns unless the pattern contains uppercase characters.
@@ -75,6 +86,12 @@ o.timeoutlen = 500
 o.shortmess:append("c")
 -- Better options for insert-mode completion menus.
 o.completeopt = { "menu", "menuone", "noinsert", "noselect" }
+
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Configure how new splits should be opened
+o.splitright = true
+o.splitbelow = true
 
 -- Misc
 -- Use a reasonable command-line height for messages (if desired, leave default otherwise).

@@ -11,7 +11,7 @@ return {
   opts = {
     bigfile = { enabled = true },
     dashboard = {
-      enabled = false,
+      enabled = true,
       preset = {
         header = [[
                                                                    
@@ -164,11 +164,11 @@ return {
       desc = "Lazygit",
     },
     {
-      "<leader>tf",
+      "<leader>tt",
       function()
-        require("snacks").terminal.float_toggle()
+        require("snacks").terminal()
       end,
-      desc = "Toggle Floating Terminal",
+      desc = "Toggle Terminal",
     }
   },
 

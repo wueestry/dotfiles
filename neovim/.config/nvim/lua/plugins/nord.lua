@@ -1,3 +1,4 @@
+-- Nord: Arctic, north-bluish colorscheme
 return {
   "gbprod/nord.nvim",
   lazy = false,

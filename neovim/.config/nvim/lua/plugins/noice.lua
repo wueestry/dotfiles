@@ -1,3 +1,4 @@
+-- Noice: Enhanced UI for messages, cmdline, and LSP in Neovim
 return {
   "folke/noice.nvim",
   event = "VeryLazy",

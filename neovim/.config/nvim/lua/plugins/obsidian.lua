@@ -1,6 +1,7 @@
 local obsidian_path = "~/Documents/obsidian"
 vim.keymap.set("n", "<leader>oo", "<cmd>cd" .. obsidian_path .. "<cr>", { desc = "change directory to obsidian" })
 
+-- Obsidian.nvim: Note-taking, daily notes, and markdown integration for Neovim
 return {
   "obsidian-nvim/obsidian.nvim",
   version = "*", -- recommended, use latest release instead of latest commit

@@ -1,5 +1,4 @@
--- lua/plugins/snacks.lua
--- Plugin spec for folke/snacks.nvim (one-file-per-plugin, Option A)
+-- Snacks: Modern UI, dashboard, notifications, and utilities for Neovim
 
 return {
   "folke/snacks.nvim",
@@ -9,7 +8,7 @@ return {
 
   -- Enable the snacks modules you want (defaults shown are sensible defaults)
   opts = {
-    bigfile = { 
+    bigfile = {
       enabled = true,
       line_length = 2000,
       file_size = 5 * 1024 * 1024, -- 5 MB
@@ -103,7 +102,7 @@ return {
         require("snacks").terminal()
       end,
       desc = "Toggle Terminal",
-    }
+    },
   },
 
   init = function()

@@ -1,3 +1,4 @@
+-- Catppuccin: Modern colorscheme with integrations
 return {
   "catppuccin/nvim",
   enabled = false,

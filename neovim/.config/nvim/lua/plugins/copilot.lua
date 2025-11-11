@@ -1,3 +1,4 @@
+-- Copilot: GitHub Copilot AI code completion and Blink-cmp integration
 return {
   {
     "zbirenbaum/copilot.lua",

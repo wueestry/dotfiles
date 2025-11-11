@@ -1,3 +1,4 @@
+-- Lualine: Statusline plugin with theme and icons
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy", -- loads lualine when needed, not at startup

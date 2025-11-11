@@ -1,3 +1,4 @@
+-- Avante: AI code assistant and chat for Neovim
 return {
   {
     "yetone/avante.nvim",
@@ -15,6 +16,7 @@ return {
       "zbirenbaum/copilot.lua", -- for providers='copilot'
       "folke/snacks.nvim",
     },
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       provider = "copilot",
       providers = {
@@ -49,7 +51,7 @@ return {
     },
   },
   {
-    -- Make sure to set this up properly if you have lazy=true
+    -- Render Markdown: Enhanced markdown rendering for Avante and markdown files
     "MeanderingProgrammer/render-markdown.nvim",
     opts = {
       file_types = { "markdown", "Avante" },

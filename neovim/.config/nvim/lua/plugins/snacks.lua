@@ -9,7 +9,11 @@ return {
 
   -- Enable the snacks modules you want (defaults shown are sensible defaults)
   opts = {
-    bigfile = { enabled = true },
+    bigfile = { 
+      enabled = true,
+      line_length = 2000,
+      file_size = 5 * 1024 * 1024, -- 5 MB
+    },
     dashboard = {
       enabled = true,
       preset = {
@@ -29,12 +33,12 @@ return {
     indent = { enabled = true },
     input = { enabled = true },
     notifier = { enabled = true, timeout = 3000 },
-    picker = { enabled = true },
-    quickfile = { enabled = true },
+    picker = { enabled = false },
+    quickfile = { enabled = false },
     terminal = { enabled = true },
     scope = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = { enabled = false },
     words = { enabled = true },
     image = {
       resolve = function(path, src)
@@ -50,76 +54,6 @@ return {
 
   -- Useful keymaps (call plugin APIs lazily via require)
   keys = {
-    {
-      "<leader><space>",
-      function()
-        require("snacks").picker.smart()
-      end,
-      desc = "Smart Find Files",
-    },
-    {
-      "<leader>,",
-      function()
-        require("snacks").picker.buffers()
-      end,
-      desc = "Buffers",
-    },
-    {
-      "<leader>/",
-      function()
-        require("snacks").picker.grep()
-      end,
-      desc = "Grep",
-    },
-    {
-      "<leader>:",
-      function()
-        require("snacks").picker.command_history()
-      end,
-      desc = "Command History",
-    },
-    {
-      "<leader>n",
-      function()
-        require("snacks").picker.notifications()
-      end,
-      desc = "Notification History",
-    },
-    {
-      "<leader>ff",
-      function()
-        require("snacks").picker.files()
-      end,
-      desc = "Find Files",
-    },
-    {
-      "<leader>fg",
-      function()
-        require("snacks").picker.git_files()
-      end,
-      desc = "Find Git Files",
-    },
-    {
-      "<leader>fp",
-      function()
-        require("snacks").picker.projects()
-      end,
-      desc = "Find Projects",
-    },
-    {
-      "<leader>fr",
-      function()
-        require("snacks").picker.recent()
-      end,
-      desc = "Find Recent",
-    },
-    {
-      "<leader>gd",
-      function()
-        require("snacks").picker.lsp_definitions()
-      end,
-      desc = "Goto Definition",
-    },
     {
       "<leader>z",
       function()
@@ -184,7 +118,6 @@ return {
         -- create some common toggle mappings
         Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
         Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
-        Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map("<leader>uL")
         Snacks.toggle.diagnostics():map("<leader>ud")
       end,
     })

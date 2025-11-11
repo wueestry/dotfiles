@@ -1,3 +1,4 @@
+-- LSP Config: Language Server Protocol setup, Mason installer, and LSP enhancements
 return {
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -252,7 +253,7 @@ return {
             python = {
               pythonPath = vim.fn.exepath("python3"),
               venvPath = ".",
-              venv = "venv",  -- or "venv"
+              venv = "venv", -- or "venv"
             },
           },
         },
@@ -274,7 +275,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         "stylua", -- Used to format Lua code
-        "ruff",  -- Linter for Python code
+        "ruff", -- Linter for Python code
         "isort", -- Python import sorter
       })
       require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

@@ -1,3 +1,4 @@
+-- Which-key: Shows popup with possible keybindings
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -16,9 +17,10 @@ return {
         { "<leader>u", group = "ui" },
         { "<leader>b", group = "buffer" },
         { "<leader>o", group = "obsidian" },
-        { "<leader>a", group = "ai" },
+        { "<leader>a", group = "avante" },
         { "<leader>c", group = "code" },
         { "<leader>x", group = "trouble" },
+        { "<leader>t", group = "toggle" },
       },
     },
   },

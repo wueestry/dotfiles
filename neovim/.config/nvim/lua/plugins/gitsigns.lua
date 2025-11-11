@@ -1,3 +1,4 @@
+-- Gitsigns: Git integration with signs and hunk actions
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufReadPre", "BufNewFile" },

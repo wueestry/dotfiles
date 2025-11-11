@@ -1,3 +1,4 @@
+-- Oil: Modern file explorer for Neovim
 return {
   "stevearc/oil.nvim",
   opts = {

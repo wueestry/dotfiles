@@ -20,23 +20,31 @@ return {
       providers = {
         copilot = {
           model = "gpt-5.1-mini",
+          timeout = 30000, -- Timeout in milliseconds
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 20480,
+          },
+        },
+        ollama = {
+          endpoint = "http://apollo:11434",
+          model = "qwen2.5-coder:14b",
         },
       },
-    },
-    keys = {
-      { "<leader>aa", "<cmd>AvanteAsk<cr>", "Avante Ask" },
-    },
-    selector = {
-      provider = "fzf",
-      -- Options override for custom providers
-      provider_opts = {},
-    },
-    input = {
-      provider = "snacks",
-      provider_opts = {
-        -- Additional snacks.input options
-        title = "Avante Input",
-        icon = " ",
+      input = {
+        provider = "snacks",
+        provider_opts = {
+          -- Additional snacks.input options
+          title = "Avante Input",
+          icon = " ",
+        },
+      },
+      selector = {
+        --- @alias avante.SelectorProvider "native" | "fzf_lua" | "mini_pick" | "snacks" | "telescope" | fun(selector: avante.ui.Selector): nil
+        --- @type avante.SelectorProvider
+        provider = "fzf",
+        -- Options override for custom providers
+        provider_opts = {},
       },
     },
   },

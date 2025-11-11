@@ -8,6 +8,7 @@ bindkey -v
 PATH=$HOME/.cargo/bin:$PATH
 PATH=/usr/local/go/bin:$PATH
 PATH=$HOME/.local/bin:$PATH
+PATH=/opt/nvim-linux-x86_64/bin:$PATH
 
 # Alias
 alias flake-dev="nix develop --no-pure-eval"
@@ -165,3 +166,9 @@ distribution() {
 }
 
 if [ -e /home/ryan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/ryan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+alias ssh_ghostwriter="ssh -i ~/.ssh/id_rsa -p 17777 reportingadmin@reporting2.switzerlandnorth.cloudapp.azure.com"
+alias ghostwriter_server="sudo ssh -i ~/.ssh/id_rsa -L 443:127.0.0.1:443 -p 17777 -N reportingadmin@reporting2.switzerlandnorth.cloudapp.azure.com"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

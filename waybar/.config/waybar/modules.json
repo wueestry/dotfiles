@@ -29,7 +29,7 @@
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{icon} {volume}%  {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-muted": " {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
@@ -45,9 +45,9 @@
     },
     "network": {
         "format-wifi": "  ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+        "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+        "format-linked": "{ifname} (No IP) 󰈀",
         "format-disconnected": "Disconnected ⚠",
 	      "on-click": "omarchy-launch-wifi"
 	 

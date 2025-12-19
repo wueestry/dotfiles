@@ -3,8 +3,7 @@ return {
   {
     "yetone/avante.nvim",
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    -- ⚠️ must add this setting! ! !
-    event = { "BufReadPre", "BufNewFile" },
+    cmd = { "AvanteAsk", "AvanteChat", "AvanteToggle", "AvanteEdit" },
     version = false, -- Never set this value to "*"! Never!
     dependencies = {
       "nvim-lua/plenary.nvim",

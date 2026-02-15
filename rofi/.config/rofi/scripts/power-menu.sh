@@ -18,8 +18,7 @@
     rofi_cmd() {
         rofi -dmenu \
             -p "Uptime: $uptime" \
-            -mesg "Uptime: $uptime" \
-            -theme power
+            -mesg "Uptime: $uptime"
     }
 
     # Confirmation CMD
@@ -31,8 +30,7 @@
             -theme-str 'textbox {horizontal-align: 0.5;}' \
             -dmenu \
             -p 'Confirmation' \
-            -mesg 'Are you Sure?' \
-            -theme power
+            -mesg 'Are you Sure?'
     }
 
     # Ask for confirmation

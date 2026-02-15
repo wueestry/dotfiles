@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-rofi -show drun -theme launch
+pkill rofi || rofi -show drun -modi drun,filebrowser,run,window

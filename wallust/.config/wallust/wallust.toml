@@ -1,0 +1,21 @@
+backend = "fastresize"
+color_space = "lch"
+palette = "dark"
+
+
+[templates]
+rofi.template = 'colors-rofi.rasi'
+rofi.target = '~/.config/rofi/colors.rasi'
+waybar.template = 'colors-waybar.css'
+waybar.target = '~/.config/waybar/colors.css'
+hypr.template = 'colors-hypr.conf'
+hypr.target = '~/.config/hypr/colors.conf'
+kitty.template = 'colors-kitty.conf'
+kitty.target = '~/.config/kitty/colors.conf'
+
+gtk.template = 'colors-gtk.css'
+gtk.target = '~/.config/gtk-3.0/gtk.css'
+gtk4.template = 'colors-gtk.css'
+gtk4.target = '~/.config/gtk-4.0/gtk.css'
+qt.template = 'colors-kvantum.kvconfig'
+qt.target = '~/.config/Kvantum/KvLibadwaita/KvLibadwaitaDark.kvconfig'

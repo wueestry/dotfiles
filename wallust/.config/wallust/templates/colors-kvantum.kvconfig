@@ -1,0 +1,13 @@
+[General]
+theme=KvLibadwaita
+
+[Colors]
+Window={background}
+WindowText={foreground}
+Base={color0}
+AltBase={color8}
+Button={color0}
+ButtonText={foreground}
+Highlight={color4}
+HighlightedText={background}
+Link={color6}

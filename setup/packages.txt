@@ -1,0 +1,42 @@
+hyprland # window manager
+iwd # network management
+openssh # ssh
+qt5-wayland
+qt6-wayland
+uwsm
+vim
+neovim
+wget
+xdg-desktop-portal-hyprland
+xdg-desktop-portal
+xdg-utils
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+brave-bin
+ripgrep
+fzf
+yazi
+waybar
+pipewire
+zsh
+starship
+obsidian
+tailscale
+otf-font-awesome
+matugen
+ttf-iosevka-nerd
+python-requests
+hyprlock
+hypridle
+tmux
+impala
+bluez-utils
+bluetui
+swaync
+swww
+noto-fonts
+cliphist
+wl-clipboard
+stow
+zsh-syntax-highlighting
+zsh-autosuggestions

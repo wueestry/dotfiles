@@ -1,6 +1,6 @@
-hyprland # window manager
-iwd # network management
-openssh # ssh
+hyprland
+iwd
+openssh
 qt5-wayland
 qt6-wayland
 uwsm
@@ -12,7 +12,6 @@ xdg-desktop-portal
 xdg-utils
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-brave-bin
 ripgrep
 fzf
 yazi
@@ -30,13 +29,31 @@ hyprlock
 hypridle
 tmux
 impala
+bluez
 bluez-utils
 bluetui
 swaync
-swww
+awww
 noto-fonts
 cliphist
 wl-clipboard
 stow
 zsh-syntax-highlighting
 zsh-autosuggestions
+flatpak
+podman
+podman-compose
+podman-docker
+btop
+opencode
+pamixer
+wiremix
+pipewire-pulse
+qemu-full
+virt-manager
+nwg-look
+lazygit
+kvantum
+kvantum-qt5
+dnsmasq
+atuin

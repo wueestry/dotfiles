@@ -57,3 +57,4 @@ kvantum
 kvantum-qt5
 dnsmasq
 atuin
+less

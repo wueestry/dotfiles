@@ -23,7 +23,7 @@
     "format-icons": {
       "default": "",
       "urgent": "",
-      "focused": ""
+      "active": ""
     }
   },
   "clock": {

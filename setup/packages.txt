@@ -58,3 +58,6 @@ kvantum-qt5
 dnsmasq
 atuin
 less
+pipewire
+wireplumber
+plymouth

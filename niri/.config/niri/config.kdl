@@ -1,0 +1,12 @@
+// Entry point for niri + DankMaterialShell configs.
+// https://yalter.github.io/niri/
+// https://danklinux.com/docs/
+
+// include DankMaterialShell stuff
+include "dms.kdl"
+
+// include the base config (keybinds, input, layout, etc.)
+include "base.kdl"
+
+// include local machine-specific overrides
+include optional=true "local.kdl"

@@ -1,6 +1,12 @@
 input {
     keyboard {
-        xkb {}
+        xkb {
+            layout "ch"
+            variant "de"
+            options "compose:caps"
+        }
+        repeat-rate 40
+        repeat-delay 600
         numlock
     }
 
@@ -8,7 +14,7 @@ input {
         tap
         natural-scroll
         accel-profile "adaptive"
-        click-method "clickfinger"
+        click-method "button-areas"
     }
 
     mouse {
@@ -16,6 +22,8 @@ input {
     }
 
     trackpoint {}
+
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 clipboard {

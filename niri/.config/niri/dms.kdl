@@ -1,3 +1,6 @@
+// Spawn DMS at startup
+spawn-at-startup "dms" "run"
+
 // Required for everything to get imported correctly from DMS
 include optional=true "dms/alttab.kdl"
 include optional=true "dms/binds.kdl"

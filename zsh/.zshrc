@@ -1,7 +1,12 @@
+# xwayland-satellite always runs on :0 in the Wayland session
+[[ -n "$WAYLAND_DISPLAY" && -z "$DISPLAY" ]] && export DISPLAY=:0
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.config/zsh/histfile
 HISTSIZE=5000
 SAVEHIST=10000
+setopt INC_APPEND_HISTORY   # write every command immediately, not only on exit
+setopt HIST_IGNORE_DUPS     # skip consecutive duplicates
 bindkey -v
 
 # Path
@@ -54,8 +59,26 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # Plugins
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+_try_source() {
+  local f
+  for f in "$@"; do
+    [[ -f "$f" ]] && { source "$f"; return 0; }
+  done
+}
+
+_try_source \
+  /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /run/current-system/sw/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
+  /nix/store/*-zsh-syntax-highlighting-*/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh(N)
+
+_try_source \
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  $HOME/.nix-profile/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /run/current-system/sw/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /nix/store/*-zsh-autosuggestions-*/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh(N)
+
+unfunction _try_source
 
 alias docker-clean=' 
   docker container prune -f ; 

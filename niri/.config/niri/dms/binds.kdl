@@ -1,37 +1,13 @@
 binds {
-    Mod+Space hotkey-overlay-title="Application Launcher" {
-        spawn "dms" "ipc" "call" "spotlight" "toggle";
-    }
-
-    Mod+V hotkey-overlay-title="Clipboard Manager" {
-        spawn "dms" "ipc" "call" "clipboard" "toggle";
-    }
-
-    Mod+M hotkey-overlay-title="Task Manager" {
-        spawn "dms" "ipc" "call" "processlist" "toggle";
-    }
-
-    Mod+Comma hotkey-overlay-title="Settings" {
-        spawn "dms" "ipc" "call" "settings" "toggle";
-    }
-
-    Mod+N hotkey-overlay-title="Notification Center" {
-        spawn "dms" "ipc" "call" "notifications" "toggle";
-    }
-
-    Mod+Y hotkey-overlay-title="Browse Wallpapers" {
-        spawn "dms" "ipc" "call" "dankdash" "wallpaper";
-    }
-
-    Mod+Shift+N hotkey-overlay-title="Notepad" {
-      spawn "dms" "ipc" "call" "notepad" "toggle";
-    }
-
-    Mod+Alt+L hotkey-overlay-title="Lock Screen" {
-        spawn "dms" "ipc" "call" "lock" "lock";
-    }
-
-    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" {
-        spawn "dms" "ipc" "call" "processlist" "toggle";
-    }
+    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "toggle"; }
+    Mod+Alt+L hotkey-overlay-title="Lock Screen" { spawn "dms" "ipc" "call" "lock" "lock"; }
+    Mod+Comma hotkey-overlay-title="Settings" { spawn "dms" "ipc" "call" "settings" "toggle"; }
+    Mod+M hotkey-overlay-title="Task Manager" { spawn "dms" "ipc" "call" "processlist" "toggle"; }
+    Mod+N hotkey-overlay-title="Notification Center" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Notepad" { spawn "dms" "ipc" "call" "notepad" "toggle"; }
+    Mod+V hotkey-overlay-title="Clipboard Manager" { spawn "dms" "ipc" "call" "clipboard" "toggle"; }
+    Mod+Y hotkey-overlay-title="Browse Wallpapers" { spawn "dms" "ipc" "call" "dankdash" "wallpaper"; }
+    Mod+space hotkey-overlay-title="Spotlight Bar: Toggle" { spawn "dms" "ipc" "call" "spotlight-bar" "toggle"; }
+    Super+D hotkey-overlay-title="Application Launcher" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "xdg-terminal-exec"; }
 }

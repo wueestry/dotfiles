@@ -1,6 +1,12 @@
 // Spawn DMS at startup
 spawn-at-startup "dms" "run"
 
+// Bridges X11-only apps into the Wayland session
+spawn-at-startup "xwayland-satellite"
+
+// Keeps Wayland clipboard contents alive after the source app loses focus
+spawn-at-startup "wl-clip-persist" "--clipboard" "both"
+
 // Required for everything to get imported correctly from DMS
 include optional=true "dms/alttab.kdl"
 include optional=true "dms/binds.kdl"

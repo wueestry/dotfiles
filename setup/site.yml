@@ -62,6 +62,24 @@
       when: ansible_os_family == 'Debian'
       ignore_errors: true
 
+    - name: Enable DankMaterialShell COPR (Fedora)
+      community.general.copr:
+        name: avengemedia/dms
+        state: enabled
+      when: ansible_os_family == 'RedHat'
+      ignore_errors: true
+
+    - name: Add DankMaterialShell PPAs (Ubuntu)
+      apt_repository:
+        repo: "ppa:avengemedia/{{ item }}"
+        state: present
+        update_cache: true
+      loop:
+        - danklinux
+        - dms
+      when: ansible_distribution == 'Ubuntu'
+      ignore_errors: true
+
     # ── System packages ──────────────────────────────────────────────────────
 
     - name: Install required system packages

@@ -54,6 +54,30 @@ system_packages:
   - name: xdg-terminal-exec
     optional: true   # not packaged on all distros yet
 
+  # ── Desktop shell (niri + DankMaterialShell) ─────────────────────────────
+  # DMS ships via distro-native repos per https://danklinux.com/docs/dankmaterialshell/installation:
+  #   Arch:    official `extra` package, no extra repo needed
+  #   Fedora:  COPR avengemedia/dms, enabled in site.yml
+  #   Ubuntu:  PPAs avengemedia/danklinux + avengemedia/dms, enabled in site.yml
+  #   Debian:  needs a manual OBS repo + native quickshell — not automated here
+  # danksearch (the launcher) isn't packaged separately; it ships inside dms.
+  - name: niri
+    optional: true   # not packaged on Debian/Ubuntu
+  - name: quickshell
+    optional: true   # DMS's runtime; Debian only has it in backports/sid, not stable
+  - name: matugen
+    optional: true   # not packaged on Debian/Ubuntu
+  - name: qt6ct
+  - name: dms
+    arch: dms-shell   # official Arch `extra` package
+    optional: true    # Fedora/Ubuntu depend on the COPR/PPA added in site.yml; plain Debian unsupported
+  - name: adw-gtk3-theme
+    optional: true   # Fedora only; Arch/Debian have no official package (AUR on Arch)
+  - name: xwayland-satellite
+    optional: true   # not packaged on Debian/Ubuntu
+  - name: wl-clip-persist
+    optional: true   # Arch only; not packaged on Fedora/Debian
+
   # ── Containers / virtualisation ──────────────────────────────────────────
   - name: distrobox
   - name: podman

@@ -56,10 +56,11 @@ system_packages:
 
   # ── Containers / virtualisation ──────────────────────────────────────────
   - name: distrobox
-  - name: docker
-    fedora: moby-engine         # OCI-compatible engine in standard Fedora repos
-    debian: docker.io           # Debian-maintained package
-    arch: docker
+  - name: podman
+  - name: podman-docker         # docker CLI/socket shim so `docker` commands work against podman
+    optional: true   # not packaged on older Debian/Ubuntu releases
+  - name: podman-compose
+    optional: true   # not packaged everywhere; pip install as fallback
   - name: libvirt
     debian: libvirt-daemon-system
   - name: virt-manager

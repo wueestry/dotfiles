@@ -116,13 +116,6 @@
         state: started
       ignore_errors: true
 
-    - name: Enable Docker service
-      systemd:
-        name: docker
-        enabled: true
-        state: started
-      ignore_errors: true
-
     # ── User configuration ───────────────────────────────────────────────────
 
     - name: Set default shell to zsh
@@ -137,5 +130,4 @@
         append: true
       loop:
         - libvirt
-        - docker
       ignore_errors: true

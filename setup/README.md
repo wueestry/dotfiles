@@ -89,5 +89,5 @@ Use `ignore_errors: true` for services that may not be present on all distros. T
 ## Notes
 
 - **Tailscale** requires its own repo on Fedora and Debian. `site.yml` adds it automatically before installing packages. On Arch it is available in the standard repos.
-- **Docker** is installed from the standard distro repos (`moby-engine` on Fedora, `docker.io` on Debian, `docker` on Arch). For rootless mode, run `dockerd-rootless-setuptool.sh install` as your user after the playbook completes.
+- **Podman** is installed from the standard distro repos on all three distros and runs rootless by default — no daemon service or extra group membership needed. `podman-docker` is installed best-effort to provide a `docker` CLI shim (and `/var/run/docker.sock`) backed by Podman, so existing `docker` commands and tooling keep working. `podman-compose` is also installed best-effort where packaged.
 - **Optional packages** not in standard repos — `lazygit`, `atuin`, `sops`, `ssh-to-age` — can be installed manually after the playbook runs. Check each project's install docs for the recommended method on your distro.

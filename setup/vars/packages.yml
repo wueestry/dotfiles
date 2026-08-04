@@ -1,0 +1,97 @@
+---
+# Single source of truth for all package installations.
+# Edit only this file to add, remove, or rename packages across all three distros.
+#
+# system_packages fields:
+#   name:     canonical fallback package name
+#   fedora:   override for Fedora / RHEL-family  (dnf)
+#   debian:   override for Debian / Ubuntu       (apt)
+#   arch:     override for Arch Linux            (pacman)
+#   optional: true → install best-effort; failure is non-fatal (default: false)
+
+flatpak_packages:
+  - app.zen_browser.zen
+  - com.brave.Browser
+  - md.obsidian.Obsidian
+  - org.gnome.Loupe
+  - org.onlyoffice.desktopeditors
+  - org.flameshot.Flameshot
+  - org.gnome.Showtime
+  - org.gnome.Papers
+
+system_packages:
+
+  # ── Version control / editor ─────────────────────────────────────────────
+  - name: git
+  - name: neovim
+
+  # ── Shell / multiplexer / terminal ───────────────────────────────────────
+  - name: zsh
+  - name: tmux
+  - name: kitty
+  - name: starship
+
+  # ── CLI productivity ─────────────────────────────────────────────────────
+  - name: fzf
+  - name: ripgrep
+  - name: stow
+  - name: lazygit
+    optional: true   # Fedora: russellbanks/lazygit COPR; Debian: binary release or PPA
+
+  # ── Build / scripting ────────────────────────────────────────────────────
+  - name: cmake
+  - name: gcc
+  - name: python3
+    arch: python   # Arch ships Python 3 as 'python'
+
+  # ── Shell history ────────────────────────────────────────────────────────
+  - name: atuin
+    optional: true   # Fedora/Debian: not in standard repos; see https://docs.atuin.sh
+
+  # ── Desktop / file management ────────────────────────────────────────────
+  - name: nautilus
+  - name: file-roller
+  - name: xdg-terminal-exec
+    optional: true   # not packaged on all distros yet
+
+  # ── Containers / virtualisation ──────────────────────────────────────────
+  - name: distrobox
+  - name: docker
+    fedora: moby-engine         # OCI-compatible engine in standard Fedora repos
+    debian: docker.io           # Debian-maintained package
+    arch: docker
+  - name: libvirt
+    debian: libvirt-daemon-system
+  - name: virt-manager
+  - name: qemu
+    fedora: qemu-kvm
+    debian: qemu-system
+    arch: qemu-base
+
+  # ── Secrets tooling ──────────────────────────────────────────────────────
+  - name: age
+  - name: sops
+    optional: true   # Arch: AUR; elsewhere: GitHub releases
+  - name: ssh-to-age
+    optional: true   # Arch: AUR; manual install on Fedora/Debian
+
+  # ── Audio (PipeWire stack) ───────────────────────────────────────────────
+  - name: pipewire
+  - name: wireplumber
+  - name: pipewire-pulse
+    fedora: pipewire-pulseaudio   # different name on Fedora
+  - name: pipewire-alsa
+
+  # ── Bluetooth ────────────────────────────────────────────────────────────
+  - name: bluez
+  - name: bluez-utils
+    fedora: bluez   # CLI tools bundled in main bluez package on Fedora
+    debian: bluez   # same on Debian/Ubuntu
+    arch: bluez-utils
+
+  # ── Flatpak runtime ──────────────────────────────────────────────────────
+  - name: flatpak
+
+  # ── VPN ──────────────────────────────────────────────────────────────────
+  - name: tailscale
+    optional: true   # Arch: community repo; Fedora/Debian: tailscale repo added in site.yml

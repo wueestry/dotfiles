@@ -5,8 +5,8 @@
       "exec": "flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@",
       "icon": "md.obsidian.Obsidian",
       "comment": "Obsidian",
-      "usageCount": 12,
-      "lastUsed": 1785784294539
+      "usageCount": 13,
+      "lastUsed": 1785816906258
     },
     "app.zen_browser.zen": {
       "name": "Zen Browser",

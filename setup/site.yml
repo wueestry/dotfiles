@@ -1,0 +1,141 @@
+---
+# Cross-distro package and service setup.
+# Targets: Fedora, Debian/Ubuntu, Arch Linux.
+#
+# Package list is maintained exclusively in vars/packages.yml.
+#
+# Usage:
+#   ansible-galaxy collection install -r requirements.yml
+#   ansible-playbook -i <inventory> site.yml -K
+#
+# For localhost:
+#   ansible-playbook -i localhost, -c local site.yml -K
+
+- name: System setup
+  hosts: all
+  become: true
+  vars_files:
+    - vars/packages.yml
+
+  pre_tasks:
+    - name: Set distro key for per-distro package name resolution
+      set_fact:
+        distro_key: >-
+          {{ 'arch'   if ansible_os_family == 'Archlinux'
+             else 'debian' if ansible_os_family == 'Debian'
+             else 'fedora' }}
+
+    - name: Refresh apt cache (Debian/Ubuntu)
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+      when: ansible_os_family == 'Debian'
+
+  tasks:
+
+    # ── Extra repositories ───────────────────────────────────────────────────
+
+    - name: Add Tailscale repo (Fedora)
+      get_url:
+        url: https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+        dest: /etc/yum.repos.d/tailscale.repo
+        mode: "0644"
+      when: ansible_os_family == 'RedHat'
+
+    - name: Download Tailscale GPG key (Debian/Ubuntu)
+      get_url:
+        url: "https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}.noarmor.gpg"
+        dest: /usr/share/keyrings/tailscale-archive-keyring.gpg
+        mode: "0644"
+      when: ansible_os_family == 'Debian'
+      ignore_errors: true
+
+    - name: Add Tailscale apt repository (Debian/Ubuntu)
+      apt_repository:
+        repo: >-
+          deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg]
+          https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }}
+          {{ ansible_distribution_release }} main
+        state: present
+        filename: tailscale
+        update_cache: true
+      when: ansible_os_family == 'Debian'
+      ignore_errors: true
+
+    # ── System packages ──────────────────────────────────────────────────────
+
+    - name: Install required system packages
+      package:
+        name: "{{ item[distro_key] | default(item['name']) }}"
+        state: present
+      loop: "{{ system_packages | rejectattr('optional', 'equalto', true) | list }}"
+
+    - name: Install optional system packages (best-effort)
+      package:
+        name: "{{ item[distro_key] | default(item['name']) }}"
+        state: present
+      loop: "{{ system_packages | selectattr('optional', 'equalto', true) | list }}"
+      ignore_errors: true
+
+    # ── Flatpak ──────────────────────────────────────────────────────────────
+
+    - name: Add Flathub remote
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+        method: system
+
+    - name: Install Flatpak applications
+      community.general.flatpak:
+        name: "{{ item }}"
+        state: present
+        remote: flathub
+        method: system
+      loop: "{{ flatpak_packages }}"
+
+    # ── Services ─────────────────────────────────────────────────────────────
+
+    - name: Enable Bluetooth service
+      systemd:
+        name: bluetooth
+        enabled: true
+        state: started
+
+    - name: Enable Tailscale daemon
+      systemd:
+        name: tailscaled
+        enabled: true
+        state: started
+      ignore_errors: true
+
+    - name: Enable libvirt daemon
+      systemd:
+        name: libvirtd
+        enabled: true
+        state: started
+      ignore_errors: true
+
+    - name: Enable Docker service
+      systemd:
+        name: docker
+        enabled: true
+        state: started
+      ignore_errors: true
+
+    # ── User configuration ───────────────────────────────────────────────────
+
+    - name: Set default shell to zsh
+      user:
+        name: "{{ ansible_user_id }}"
+        shell: /bin/zsh
+
+    - name: Add user to virtualisation groups
+      user:
+        name: "{{ ansible_user_id }}"
+        groups: "{{ item }}"
+        append: true
+      loop:
+        - libvirt
+        - docker
+      ignore_errors: true

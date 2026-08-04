@@ -126,17 +126,22 @@
       "width": 50
     },
     {
+      "id": "audioOutput",
+      "enabled": true,
+      "width": 50
+    },
+    {
       "id": "wifi",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "bluetooth",
+      "id": "inputVolumeSlider",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "audioOutput",
+      "id": "bluetooth",
       "enabled": true,
       "width": 50
     },
@@ -151,7 +156,12 @@
       "width": 50
     },
     {
-      "id": "darkMode",
+      "id": "builtin_tailscale",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "builtin_vpn",
       "enabled": true,
       "width": 50
     }
@@ -273,7 +283,7 @@
   "launcherStyle": "full",
   "spotlightBarShowModeChips": false,
   "keybindsFloatingWindow": false,
-  "useAutoLocation": false,
+  "useAutoLocation": true,
   "weatherEnabled": true,
   "dashTabs": [
     {
@@ -294,7 +304,7 @@
     },
     {
       "id": "settings",
-      "enabled": true
+      "enabled": false
     }
   ],
   "networkPreference": "auto",
@@ -551,7 +561,9 @@
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
-  "activeDisplayProfile": {},
+  "activeDisplayProfile": {
+    "niri": "profile_1785772661455_96pklfz"
+  },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
@@ -587,6 +599,12 @@
       "rightWidgets": [
         "systemTray",
         "notificationButton",
+        {
+          "id": "keyboard_layout_name",
+          "enabled": true,
+          "keyboardLayoutNameShowIcon": true,
+          "keyboardLayoutNameCompactMode": true
+        },
         "battery",
         "controlCenterButton"
       ],

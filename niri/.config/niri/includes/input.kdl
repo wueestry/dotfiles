@@ -1,8 +1,8 @@
 input {
     keyboard {
         xkb {
-            layout "ch"
-            variant "de"
+            layout "ch,us"
+            variant "de,altgr-intl"
             options "compose:caps"
         }
         repeat-rate 40

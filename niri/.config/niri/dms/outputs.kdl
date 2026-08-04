@@ -6,9 +6,15 @@ output "DP-11" {
     position x=0 y=0
 }
 
+output "DP-12" {
+    mode "3440x1440@59.999"
+    scale 1
+    position x=5196 y=0
+}
+
 output "eDP-1" {
     mode "3072x1920@60.000"
     scale 1.75
-    position x=3440 y=343
+    position x=8636 y=343
 }
 

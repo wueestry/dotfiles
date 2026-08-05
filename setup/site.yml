@@ -17,6 +17,13 @@
   vars_files:
     - vars/packages.yml
 
+  vars:
+    required_system_packages: >-
+      {{ (system_packages | rejectattr('optional', 'defined') | list)
+         + (system_packages | selectattr('optional', 'defined') | rejectattr('optional', 'equalto', true) | list) }}
+    optional_system_packages: >-
+      {{ system_packages | selectattr('optional', 'defined') | selectattr('optional', 'equalto', true) | list }}
+
   pre_tasks:
     - name: Set distro key for per-distro package name resolution
       set_fact:
@@ -86,13 +93,13 @@
       package:
         name: "{{ item[distro_key] | default(item['name']) }}"
         state: present
-      loop: "{{ system_packages | rejectattr('optional', 'equalto', true) | list }}"
+      loop: "{{ required_system_packages }}"
 
     - name: Install optional system packages (best-effort)
       package:
         name: "{{ item[distro_key] | default(item['name']) }}"
         state: present
-      loop: "{{ system_packages | selectattr('optional', 'equalto', true) | list }}"
+      loop: "{{ optional_system_packages }}"
       ignore_errors: true
 
     # ── Flatpak ──────────────────────────────────────────────────────────────

@@ -1,17 +1,27 @@
 #%PAM-1.0
 # BEGIN DMS LOCKSCREEN AUTH (managed by dms greeter sync)
-account required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_unix.so # unix (order 11000)
-auth optional /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_unix.so likeauth nullok # unix-early (order 11700)
-auth optional /nix/store/82c4m1qpmqly6s51kpvnqriwvm8ls8cn-gnome-keyring-50.0/lib/security/pam_gnome_keyring.so # gnome_keyring (order 12200)
-auth sufficient /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_unix.so likeauth nullok try_first_pass # unix (order 12900)
-auth required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_deny.so # deny (order 13700)
-password sufficient /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_unix.so nullok yescrypt # unix (order 10200)
-password optional /nix/store/82c4m1qpmqly6s51kpvnqriwvm8ls8cn-gnome-keyring-50.0/lib/security/pam_gnome_keyring.so use_authtok # gnome_keyring (order 11100)
-session required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_env.so conffile=/etc/pam/environment readenv=0 # env (order 10100)
-session required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_unix.so # unix (order 10200)
-session required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_loginuid.so # loginuid (order 10300)
-session required /nix/store/zmpllszpianlvc3bzajmw6zqb75qha21-util-linux-2.42.2-lastlog/lib/security/pam_lastlog2.so silent # lastlog (order 10800)
-session optional /nix/store/awwpkq270lnvzmk3bwp50f1yba13ji9m-systemd-260.2/lib/security/pam_systemd.so # systemd (order 12000)
-session required /nix/store/snkj8f45zxp4p54d51l24szsbfrsbfip-linux-pam-1.7.2/lib/security/pam_limits.so conf=/nix/store/qw5hg9av3ch525q1qvs5wip2fiwklan7-limits.conf # limits (order 12200)
-session optional /nix/store/82c4m1qpmqly6s51kpvnqriwvm8ls8cn-gnome-keyring-50.0/lib/security/pam_gnome_keyring.so auto_start # gnome_keyring (order 12600)
+auth        required                                     pam_env.so
+auth        required                                     pam_faildelay.so delay=2000000
+auth        sufficient                                   pam_unix.so nullok
+auth        required                                     pam_deny.so
+account    required     pam_nologin.so
+account     required                                     pam_unix.so
+password    requisite                                    pam_pwquality.so
+password    sufficient                                   pam_unix.so yescrypt shadow nullok use_authtok
+password    required                                     pam_deny.so
+session    required     pam_selinux.so close
+session    required     pam_loginuid.so
+session    required     pam_selinux.so open
+session    required     pam_namespace.so
+session    optional     pam_keyinit.so force revoke
+session     optional                                     pam_keyinit.so revoke
+session     required                                     pam_limits.so
+-session    optional                                     pam_systemd.so
+session     [success=1 default=ignore]                   pam_succeed_if.so service in crond quiet use_uid
+session     required                                     pam_unix.so
+session     optional                   pam_umask.so silent
+session     [success=1 default=ignore] pam_succeed_if.so service !~ gdm* service !~ su* quiet
+session     [default=1]                pam_lastlog2.so silent
+session     optional                   pam_lastlog2.so silent
+-session   optional     pam_ck_connector.so
 # END DMS LOCKSCREEN AUTH

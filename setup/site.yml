@@ -23,20 +23,63 @@
          + (system_packages | selectattr('optional', 'defined') | rejectattr('optional', 'equalto', true) | list) }}
     optional_system_packages: >-
       {{ system_packages | selectattr('optional', 'defined') | selectattr('optional', 'equalto', true) | list }}
+    # This repo, checked out on the target machine. Stow packages below are
+    # linked out of here into $HOME (or / for system_stow_packages).
+    # target_home is set in pre_tasks (see the comment there on why
+    # ansible_env.HOME can't be used).
+    dotfiles_dir: "{{ target_home }}/.dotfiles"
+    home_stow_packages:
+      - dms
+      - git
+      - hyprland
+      - kitty
+      - neovim
+      - niri
+      - tmux
+      - zsh
+    system_stow_packages:
+      - plymouth
 
   pre_tasks:
     - name: Set distro key for per-distro package name resolution
       set_fact:
         distro_key: >-
-          {{ 'arch'   if ansible_os_family == 'Archlinux'
-             else 'debian' if ansible_os_family == 'Debian'
+          {{ 'arch'   if ansible_facts['os_family'] == 'Archlinux'
+             else 'debian' if ansible_facts['os_family'] == 'Debian'
              else 'fedora' }}
+
+    # ansible_user_id reflects whoever tasks actually execute as. Since this
+    # play runs with become: true, that's root for every task including the
+    # implicit fact-gathering one — so ansible_user_id is "root", not the
+    # login user. Tasks that need the real human account (shell, groups, stow)
+    # must use target_user instead.
+    - name: Capture the real login user (not the become target)
+      become: false
+      command: whoami
+      register: login_user
+      changed_when: false
+
+    - name: Set target_user fact
+      set_fact:
+        target_user: "{{ login_user.stdout }}"
+
+    # ansible_env.HOME has the same become problem as ansible_user_id above —
+    # it would resolve to /root. getent reads NSS directly, so it's correct
+    # regardless of which user tasks execute as.
+    - name: Look up the login user's passwd entry
+      getent:
+        database: passwd
+        key: "{{ target_user }}"
+
+    - name: Set target_home fact
+      set_fact:
+        target_home: "{{ getent_passwd[target_user][4] }}"
 
     - name: Refresh apt cache (Debian/Ubuntu)
       apt:
         update_cache: true
         cache_valid_time: 3600
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
 
   tasks:
 
@@ -47,33 +90,33 @@
         url: https://pkgs.tailscale.com/stable/fedora/tailscale.repo
         dest: /etc/yum.repos.d/tailscale.repo
         mode: "0644"
-      when: ansible_os_family == 'RedHat'
+      when: ansible_facts['os_family'] == 'RedHat'
 
     - name: Download Tailscale GPG key (Debian/Ubuntu)
       get_url:
-        url: "https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }}/{{ ansible_distribution_release }}.noarmor.gpg"
+        url: "https://pkgs.tailscale.com/stable/{{ ansible_facts['distribution'] | lower }}/{{ ansible_facts['distribution_release'] }}.noarmor.gpg"
         dest: /usr/share/keyrings/tailscale-archive-keyring.gpg
         mode: "0644"
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
       ignore_errors: true
 
     - name: Add Tailscale apt repository (Debian/Ubuntu)
       apt_repository:
         repo: >-
           deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg]
-          https://pkgs.tailscale.com/stable/{{ ansible_distribution | lower }}
-          {{ ansible_distribution_release }} main
+          https://pkgs.tailscale.com/stable/{{ ansible_facts['distribution'] | lower }}
+          {{ ansible_facts['distribution_release'] }} main
         state: present
         filename: tailscale
         update_cache: true
-      when: ansible_os_family == 'Debian'
+      when: ansible_facts['os_family'] == 'Debian'
       ignore_errors: true
 
     - name: Enable DankMaterialShell COPR (Fedora)
       community.general.copr:
         name: avengemedia/dms
         state: enabled
-      when: ansible_os_family == 'RedHat'
+      when: ansible_facts['os_family'] == 'RedHat'
       ignore_errors: true
 
     - name: Add DankMaterialShell PPAs (Ubuntu)
@@ -84,10 +127,20 @@
       loop:
         - danklinux
         - dms
-      when: ansible_distribution == 'Ubuntu'
+      when: ansible_facts['distribution'] == 'Ubuntu'
       ignore_errors: true
 
     # ── System packages ──────────────────────────────────────────────────────
+
+    - name: Remove moby-engine (conflicts with podman-docker)
+      package:
+        # moby-engine-rootless-extras depends on the exact moby-engine build,
+        # so dnf refuses to remove moby-engine on its own — both must go together.
+        name:
+          - moby-engine
+          - moby-engine-rootless-extras
+        state: absent
+      when: ansible_facts['os_family'] == 'RedHat'
 
     - name: Install required system packages
       package:
@@ -101,6 +154,27 @@
         state: present
       loop: "{{ optional_system_packages }}"
       ignore_errors: true
+
+    # ── Starship prompt ───────────────────────────────────────────────────────
+    # No official package on Fedora/Debian (and to keep the install method
+    # identical everywhere), so all three distros get it via upstream's
+    # installer script rather than the system package manager.
+
+    - name: Check if Starship is already installed
+      stat:
+        path: /usr/local/bin/starship
+      register: starship_bin
+
+    - name: Download Starship install script
+      get_url:
+        url: https://starship.rs/install.sh
+        dest: /tmp/starship-install.sh
+        mode: "0755"
+      when: not starship_bin.stat.exists
+
+    - name: Install Starship prompt
+      command: /tmp/starship-install.sh -y -b /usr/local/bin
+      when: not starship_bin.stat.exists
 
     # ── Flatpak ──────────────────────────────────────────────────────────────
 
@@ -145,14 +219,34 @@
 
     - name: Set default shell to zsh
       user:
-        name: "{{ ansible_user_id }}"
+        name: "{{ target_user }}"
         shell: /bin/zsh
 
     - name: Add user to virtualisation groups
       user:
-        name: "{{ ansible_user_id }}"
+        name: "{{ target_user }}"
         groups: "{{ item }}"
         append: true
       loop:
         - libvirt
+      ignore_errors: true
+
+    # ── Dotfiles (GNU Stow) ───────────────────────────────────────────────────
+    # Requires this repo to already be checked out at dotfiles_dir on the
+    # target. Runs as the login user (not root) so linked files/dirs under
+    # $HOME end up owned by the user, not root.
+
+    - name: Symlink user dotfiles with Stow
+      command: >-
+        stow --dir={{ dotfiles_dir }} --target={{ target_home }}
+        --restow {{ item }}
+      loop: "{{ home_stow_packages }}"
+      become: false
+      ignore_errors: true
+
+    - name: Symlink system dotfiles with Stow (Plymouth theme)
+      command: >-
+        stow --dir={{ dotfiles_dir }} --target=/
+        --restow {{ item }}
+      loop: "{{ system_stow_packages }}"
       ignore_errors: true

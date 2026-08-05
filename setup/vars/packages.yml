@@ -29,7 +29,8 @@ system_packages:
   - name: zsh
   - name: tmux
   - name: kitty
-  - name: starship
+  # starship: no official package on Fedora/Debian, so it's installed via
+  # upstream's install script in site.yml instead of listed here.
 
   # ── CLI productivity ─────────────────────────────────────────────────────
   - name: fzf
@@ -51,8 +52,6 @@ system_packages:
   # ── Desktop / file management ────────────────────────────────────────────
   - name: nautilus
   - name: file-roller
-  - name: xdg-terminal-exec
-    optional: true   # not packaged on all distros yet
 
   # ── Desktop shell (niri + DankMaterialShell) ─────────────────────────────
   # DMS ships via distro-native repos per https://danklinux.com/docs/dankmaterialshell/installation:

@@ -1,7 +1,7 @@
 {
-  "currentThemeName": "blue",
-  "currentThemeCategory": "generic",
-  "customThemeFile": "/home/ryan/.config/DankMaterialShell/themes/nord/theme.json",
+  "currentThemeName": "custom",
+  "currentThemeCategory": "registry",
+  "customThemeFile": "/home/ryan/.config/DankMaterialShell/themes/tokyoNightDark/theme.json",
   "registryThemeVariants": {},
   "matugenScheme": "scheme-tonal-spot",
   "matugenContrast": 0,
@@ -15,7 +15,7 @@
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 12,
+  "cornerRadius": 16,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -29,10 +29,10 @@
   "mangoLayoutRadiusOverride": -1,
   "mangoLayoutBorderSize": -1,
   "mangoTrackpadNaturalScrolling": true,
-  "firstDayOfWeek": -1,
+  "firstDayOfWeek": 1,
   "showWeekNumber": false,
-  "calendarBackend": "auto",
-  "clockFormat": "24h",
+  "calendarBackend": "dankcal",
+  "clockFormat": "auto",
   "showSeconds": false,
   "padHours12Hour": false,
   "useFahrenheit": false,
@@ -104,7 +104,7 @@
   "controlCenterShowBrightnessIcon": false,
   "controlCenterShowBrightnessPercent": false,
   "controlCenterShowMicIcon": false,
-  "controlCenterShowMicPercent": true,
+  "controlCenterShowMicPercent": false,
   "controlCenterShowBatteryIcon": false,
   "controlCenterShowPrinterIcon": false,
   "controlCenterShowScreenSharingIcon": true,
@@ -126,22 +126,17 @@
       "width": 50
     },
     {
-      "id": "audioOutput",
-      "enabled": true,
-      "width": 50
-    },
-    {
       "id": "wifi",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "inputVolumeSlider",
+      "id": "bluetooth",
       "enabled": true,
       "width": 50
     },
     {
-      "id": "bluetooth",
+      "id": "audioOutput",
       "enabled": true,
       "width": 50
     },
@@ -156,12 +151,7 @@
       "width": 50
     },
     {
-      "id": "builtin_tailscale",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "builtin_vpn",
+      "id": "darkMode",
       "enabled": true,
       "width": 50
     }
@@ -238,9 +228,35 @@
   "runningAppsCurrentWorkspace": true,
   "runningAppsGroupByApp": false,
   "runningAppsCurrentMonitor": false,
-  "appIdSubstitutions": [],
+  "appIdSubstitutions": [
+    {
+      "pattern": "Spotify",
+      "replacement": "spotify",
+      "type": "exact"
+    },
+    {
+      "pattern": "beepertexts",
+      "replacement": "beeper",
+      "type": "exact"
+    },
+    {
+      "pattern": "home assistant desktop",
+      "replacement": "homeassistant-desktop",
+      "type": "exact"
+    },
+    {
+      "pattern": "com.transmissionbt.transmission",
+      "replacement": "transmission-gtk",
+      "type": "contains"
+    },
+    {
+      "pattern": "^steam_app_(\\d+)$",
+      "replacement": "steam_icon_$1",
+      "type": "regex"
+    }
+  ],
   "centeringMode": "index",
-  "clockDateFormat": "",
+  "clockDateFormat": "ddd d MMM yyyy",
   "lockDateFormat": "",
   "greeterRememberLastSession": true,
   "greeterRememberLastUser": true,
@@ -269,7 +285,7 @@
   "spotlightSectionViewModes": {},
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
-  "niriOverviewLauncherStyle": "spotlight",
+  "niriOverviewLauncherStyle": "full",
   "dankLauncherV2Size": "compact",
   "dankLauncherV2ShowSourceBadges": true,
   "dankLauncherV2BorderEnabled": false,
@@ -304,7 +320,7 @@
     },
     {
       "id": "settings",
-      "enabled": false
+      "enabled": true
     }
   ],
   "networkPreference": "wifi",
@@ -324,11 +340,14 @@
       "hideOnTouch": false,
       "inactiveTimeout": 0
     },
+    "dwl": {
+      "cursorHideTimeout": 0
+    },
     "mango": {
       "cursorHideTimeout": 0
     }
   },
-  "launcherLogoMode": "os",
+  "launcherLogoMode": "apps",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "",
   "launcherLogoColorInvertOnMode": false,
@@ -365,13 +384,13 @@
   "acLockTimeout": 0,
   "acSuspendTimeout": 0,
   "acSuspendBehavior": 0,
-  "acProfileName": "",
+  "acProfileName": "2",
   "acPostLockMonitorTimeout": 0,
   "batteryMonitorTimeout": 0,
   "batteryLockTimeout": 0,
   "batterySuspendTimeout": 0,
   "batterySuspendBehavior": 0,
-  "batteryProfileName": "",
+  "batteryProfileName": "1",
   "batteryPostLockMonitorTimeout": 0,
   "batteryChargeLimit": 100,
   "batteryNotifyChargeLimit": false,
@@ -382,7 +401,7 @@
   "batteryChargeLimitNotificationType": 0,
   "batteryLowNotificationType": 0,
   "batteryCriticalNotificationType": 1,
-  "batteryAutoPowerSaver": false,
+  "batteryAutoPowerSaver": true,
   "lockBeforeSuspend": false,
   "loginctlLockIntegration": true,
   "fadeToLockEnabled": true,
@@ -522,7 +541,7 @@
   "osdIdleInhibitorEnabled": true,
   "osdMicMuteEnabled": true,
   "osdCapsLockEnabled": true,
-  "osdPowerProfileEnabled": true,
+  "osdPowerProfileEnabled": false,
   "osdAudioOutputEnabled": true,
   "powerActionConfirm": true,
   "powerActionHoldDuration": 0.5,
@@ -552,18 +571,12 @@
   "updaterAllowAUR": true,
   "updaterIgnoredPackages": [],
   "displayNameMode": "system",
-  "screenPreferences": {
-    "wallpaper": [
-      "all"
-    ]
-  },
+  "screenPreferences": {},
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
-  "activeDisplayProfile": {
-    "niri": "profile_1785772661455_96pklfz"
-  },
+  "activeDisplayProfile": {},
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
@@ -579,18 +592,13 @@
       ],
       "showOnLastDisplay": true,
       "leftWidgets": [
-        {
-          "id": "clock",
-          "enabled": true,
-          "clockCompactMode": false
-        },
-        "weather"
+        "launcherButton",
+        "workspaceSwitcher"
       ],
       "centerWidgets": [
-        {
-          "id": "workspaceSwitcher",
-          "enabled": true
-        },
+        "music",
+        "clock",
+        "weather",
         {
           "id": "privacyIndicator",
           "enabled": true
@@ -598,6 +606,7 @@
       ],
       "rightWidgets": [
         "systemTray",
+        "clipboard",
         "notificationButton",
         {
           "id": "keyboard_layout_name",
@@ -610,16 +619,11 @@
       ],
       "spacing": 4,
       "innerPadding": 4,
-      "barInsetPadding": -1,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 1,
       "squareCorners": false,
       "noBackground": false,
-      "maximizeWidgetIcons": false,
-      "maximizeWidgetText": false,
-      "removeWidgetPadding": false,
-      "widgetPadding": 8,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
       "gothCornerRadiusValue": 12,
@@ -627,32 +631,13 @@
       "borderColor": "surfaceText",
       "borderOpacity": 1,
       "borderThickness": 1,
-      "widgetOutlineEnabled": false,
-      "widgetOutlineColor": "primary",
-      "widgetOutlineOpacity": 1,
-      "widgetOutlineThickness": 1,
       "fontScale": 1,
-      "iconScale": 1,
       "autoHide": false,
-      "autoHideStrict": false,
       "autoHideDelay": 250,
-      "showOnWindowsOpen": false,
       "openOnOverview": false,
       "visible": true,
       "popupGapsAuto": true,
-      "popupGapsManual": 4,
-      "maximizeDetection": true,
-      "useOverlayLayer": false,
-      "scrollEnabled": true,
-      "scrollXBehavior": "column",
-      "scrollYBehavior": "workspace",
-      "shadowIntensity": 0,
-      "shadowOpacity": 60,
-      "shadowColorMode": "default",
-      "shadowCustomColor": "#000000",
-      "clickThrough": false,
-      "hoverPopouts": false,
-      "hoverPopoutDelay": 150
+      "popupGapsManual": 4
     }
   ],
   "desktopClockEnabled": false,
@@ -726,14 +711,7 @@
   "desktopWidgetGridSettings": {},
   "desktopWidgetInstances": [],
   "desktopWidgetGroups": [],
-  "builtInPluginSettings": {
-    "dms_settings_search": {
-      "trigger": "?"
-    },
-    "dms_clipboard_search": {
-      "trigger": "cb"
-    }
-  },
+  "builtInPluginSettings": {},
   "clipboardClickToPaste": false,
   "clipboardEnterToPaste": false,
   "clipboardRememberTypeFilter": false,

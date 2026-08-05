@@ -1,52 +1,28 @@
 {
   "appUsageRanking": {
-    "md.obsidian.Obsidian": {
-      "name": "Obsidian",
-      "exec": "flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@",
-      "icon": "md.obsidian.Obsidian",
-      "comment": "Obsidian",
-      "usageCount": 13,
-      "lastUsed": 1785816906258
-    },
     "app.zen_browser.zen": {
       "name": "Zen Browser",
-      "exec": "flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen @@u %u @@",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen @@u %u @@",
       "icon": "app.zen_browser.zen",
       "comment": "A fast, private and secure web browser built to improve your day-to-day experience.",
-      "usageCount": 4,
-      "lastUsed": 1785785297965
-    },
-    "org.gnome.FileRoller": {
-      "name": "File Roller",
-      "exec": "file-roller %U",
-      "icon": "org.gnome.FileRoller",
-      "comment": "Create and modify an archive",
-      "usageCount": 1,
-      "lastUsed": 1785659898854
-    },
-    "org.gnome.Nautilus": {
-      "name": "Files",
-      "exec": "nautilus --new-window %U",
-      "icon": "org.gnome.Nautilus",
-      "comment": "Access and organize files",
       "usageCount": 3,
-      "lastUsed": 1785663520076
+      "lastUsed": 1785950145516
     },
-    "virt-manager": {
-      "name": "Virtual Machine Manager",
-      "exec": "virt-manager",
-      "icon": "virt-manager",
-      "comment": "Manage virtual machines",
-      "usageCount": 4,
-      "lastUsed": 1785690483303
+    "md.obsidian.Obsidian": {
+      "name": "Obsidian",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@",
+      "icon": "md.obsidian.Obsidian",
+      "comment": "Obsidian",
+      "usageCount": 1,
+      "lastUsed": 1785938460079
     },
     "com.brave.Browser": {
       "name": "Brave",
-      "exec": "flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@",
       "icon": "com.brave.Browser",
       "comment": "Access the Internet",
       "usageCount": 1,
-      "lastUsed": 1785784487702
+      "lastUsed": 1785951055130
     }
   }
 }

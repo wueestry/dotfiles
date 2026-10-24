@@ -5,24 +5,200 @@
       "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen @@u %u @@",
       "icon": "app.zen_browser.zen",
       "comment": "A fast, private and secure web browser built to improve your day-to-day experience.",
-      "usageCount": 3,
-      "lastUsed": 1785950145516
+      "usageCount": 77,
+      "lastUsed": 1792818553956
     },
     "md.obsidian.Obsidian": {
       "name": "Obsidian",
       "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=obsidian.sh --file-forwarding md.obsidian.Obsidian @@u %U @@",
       "icon": "md.obsidian.Obsidian",
       "comment": "Obsidian",
-      "usageCount": 1,
-      "lastUsed": 1785938460079
+      "usageCount": 47,
+      "lastUsed": 1792819850523
     },
     "com.brave.Browser": {
       "name": "Brave",
       "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=brave --file-forwarding com.brave.Browser @@u %U @@",
       "icon": "com.brave.Browser",
       "comment": "Access the Internet",
+      "usageCount": 16,
+      "lastUsed": 1792748218784
+    },
+    "virt-manager": {
+      "name": "Virtual Machine Manager",
+      "exec": "virt-manager",
+      "icon": "virt-manager",
+      "comment": "Manage virtual machines",
+      "usageCount": 85,
+      "lastUsed": 1792776921686
+    },
+    "org.gnome.FileRoller": {
+      "name": "File Roller",
+      "exec": "file-roller %U",
+      "icon": "org.gnome.FileRoller",
+      "comment": "Create and modify an archive",
+      "usageCount": 2,
+      "lastUsed": 1786634156563
+    },
+    "org.gnome.Nautilus": {
+      "name": "Files",
+      "exec": "nautilus --new-window %U",
+      "icon": "org.gnome.Nautilus",
+      "comment": "Access and organise files",
+      "usageCount": 46,
+      "lastUsed": 1792749223293
+    },
+    "ai.lmstudio.lm-studio": {
+      "name": "LM-Studio",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=lmstudio --file-forwarding ai.lmstudio.lm-studio @@u %U @@",
+      "icon": "ai.lmstudio.lm-studio",
+      "comment": "Use the chat UI or local server to experiment and develop with local LLMs.",
+      "usageCount": 3,
+      "lastUsed": 1790514203338
+    },
+    "com.valvesoftware.Steam": {
+      "name": "Steam",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/steam --file-forwarding com.valvesoftware.Steam @@u %U @@",
+      "icon": "com.valvesoftware.Steam",
+      "comment": "Application for managing and playing games on Steam",
+      "usageCount": 69,
+      "lastUsed": 1792819152623
+    },
+    "com.github.tchx84.Flatseal": {
+      "name": "Flatseal",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.github.tchx84.Flatseal com.github.tchx84.Flatseal",
+      "icon": "com.github.tchx84.Flatseal",
+      "comment": "Manage Flatpak permissions",
+      "usageCount": 5,
+      "lastUsed": 1791047725739
+    },
+    "com.heroicgameslauncher.hgl": {
+      "name": "Heroic Games Launcher",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=heroic-run --file-forwarding com.heroicgameslauncher.hgl @@u %u @@",
+      "icon": "com.heroicgameslauncher.hgl",
+      "comment": "An Open Source GOG and Epic Games launcher",
+      "usageCount": 6,
+      "lastUsed": 1789294433001
+    },
+    "com.vscodium.codium": {
+      "name": "VSCodium",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.vscodium.codium --file-forwarding com.vscodium.codium @@ %F @@",
+      "icon": "com.vscodium.codium",
+      "comment": "Code Editing. Redefined.",
+      "usageCount": 7,
+      "lastUsed": 1790163642057
+    },
+    "io.github.Amethyst.ModManager": {
+      "name": "Amethyst Mod Manager",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=amethyst-mod-manager --file-forwarding io.github.Amethyst.ModManager @@u %u @@",
+      "icon": "io.github.Amethyst.ModManager",
+      "comment": "Linux Mod Manager",
+      "usageCount": 8,
+      "lastUsed": 1792819164529
+    },
+    "com.usebottles.bottles": {
+      "name": "Bottles",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bottles --file-forwarding com.usebottles.bottles @@u %u @@",
+      "icon": "com.usebottles.bottles",
+      "comment": "Run Windows software",
+      "usageCount": 5,
+      "lastUsed": 1791048761721
+    },
+    "org.flameshot.Flameshot": {
+      "name": "Flameshot",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/flameshot org.flameshot.Flameshot",
+      "icon": "org.flameshot.Flameshot",
+      "comment": "Powerful yet simple to use screenshot software.",
+      "usageCount": 2,
+      "lastUsed": 1788510587527
+    },
+    "org.onlyoffice.desktopeditors": {
+      "name": "ONLYOFFICE",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=desktopeditors --file-forwarding org.onlyoffice.desktopeditors @@u %U @@",
+      "icon": "org.onlyoffice.desktopeditors",
+      "comment": "Edit office documents",
+      "usageCount": 2,
+      "lastUsed": 1788518054508
+    },
+    "hermes": {
+      "name": "Hermes",
+      "exec": "/home/ryan/.local/bin/hermes desktop",
+      "icon": "hermes",
+      "comment": "Launch Hermes Desktop",
+      "usageCount": 2,
+      "lastUsed": 1789237965061
+    },
+    "io.github.martchus.syncthingtray": {
+      "name": "Syncthing Tray",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=syncthingtray io.github.martchus.syncthingtray",
+      "icon": "io.github.martchus.syncthingtray",
+      "comment": "Tray application for Syncthing",
+      "usageCount": 2,
+      "lastUsed": 1789577484355
+    },
+    "org.musicbrainz.Picard": {
+      "name": "MusicBrainz Picard",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=picard --file-forwarding org.musicbrainz.Picard @@ %F @@",
+      "icon": "org.musicbrainz.Picard",
+      "comment": "Tag your music with the next generation MusicBrainz tagger",
+      "usageCount": 3,
+      "lastUsed": 1789750100470
+    },
+    "org.localsend.localsend_app": {
+      "name": "LocalSend",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=localsend --file-forwarding org.localsend.localsend_app @@u %U @@",
+      "icon": "org.localsend.localsend_app",
+      "comment": "Share files to nearby devices",
       "usageCount": 1,
-      "lastUsed": 1785951055130
+      "lastUsed": 1789748556368
+    },
+    "org.gimp.GIMP": {
+      "name": "GNU Image Manipulation Program",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=gimp-3.2 --file-forwarding org.gimp.GIMP @@u %U @@",
+      "icon": "org.gimp.GIMP",
+      "comment": "Create images and edit photographs",
+      "usageCount": 2,
+      "lastUsed": 1790515189246
+    },
+    "unsloth-studio": {
+      "name": "Unsloth Studio",
+      "exec": "\"/home/ryan/.local/share/unsloth/launch-studio.sh\"",
+      "icon": "/home/ryan/.local/share/unsloth/unsloth-studio.png",
+      "comment": "Launch Unsloth Studio",
+      "usageCount": 1,
+      "lastUsed": 1790514251308
+    },
+    "fm.reaper.Reaper": {
+      "name": "Reaper",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=reaper fm.reaper.Reaper",
+      "icon": "fm.reaper.Reaper",
+      "comment": "Digital Audio Workstation",
+      "usageCount": 1,
+      "lastUsed": 1791091271962
+    },
+    "org.musescore.MuseScore": {
+      "name": "MuseScore Studio 4.7",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=mscore --file-forwarding org.musescore.MuseScore @@u %U @@",
+      "icon": "org.musescore.MuseScore",
+      "comment": "Create, play and print beautiful sheet music",
+      "usageCount": 1,
+      "lastUsed": 1791709271087
+    },
+    "com.github.Matoking.protontricks": {
+      "name": "Protontricks",
+      "exec": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=protontricks com.github.Matoking.protontricks --no-term --gui",
+      "icon": "com.github.Matoking.protontricks",
+      "comment": "A simple wrapper that does winetricks things for Proton enabled games",
+      "usageCount": 2,
+      "lastUsed": 1792000850616
+    },
+    "org.gnome.seahorse.Application": {
+      "name": "Passwords and Keys",
+      "exec": "seahorse %u",
+      "icon": "org.gnome.seahorse.Application",
+      "comment": "Manage your passwords and encryption keys",
+      "usageCount": 2,
+      "lastUsed": 1792819859842
     }
   }
 }

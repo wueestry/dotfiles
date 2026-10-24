@@ -4,6 +4,7 @@ auth        required                                     pam_env.so
 auth        required                                     pam_faildelay.so delay=2000000
 auth        sufficient                                   pam_unix.so nullok
 auth        required                                     pam_deny.so
+auth	   optional	pam_gnome_keyring.so
 account    required     pam_nologin.so
 account     required                                     pam_unix.so
 password    requisite                                    pam_pwquality.so
@@ -23,5 +24,6 @@ session     optional                   pam_umask.so silent
 session     [success=1 default=ignore] pam_succeed_if.so service !~ gdm* service !~ su* quiet
 session     [default=1]                pam_lastlog2.so silent
 session     optional                   pam_lastlog2.so silent
+-session    optional		       pam_gnome_keyring.so auto_start
 -session   optional     pam_ck_connector.so
 # END DMS LOCKSCREEN AUTH

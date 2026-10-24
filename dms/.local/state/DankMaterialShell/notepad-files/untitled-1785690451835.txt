@@ -1,0 +1,40 @@
+https://login.tidal.com/authorize?client_id=lf9oEnUUxA1qoRLF&code_challenge=aD6CR1ddgKARsz9U6sEU18X2p4gaAT5TGIVJeL8GFxo&code_challenge_method=S256&prompt=consent&redirect_uri=https%3A%2F%2Fsoulsync-tidal.home.wueestry.com%2Ftidal%2Fcallback&response_type=code&scope=user.read%20playlists.read%20collection.read&geo=CH&campaignId=default
+
+https://login.tidal.com/authorize?client_id=lf9oEnUUxA1qoRLF&code_challenge=msuPQVyBpMnp0yUHFrOtfIa9GipMnGx0TgHltTYWkto&code_challenge_method=S256&prompt=consent&redirect_uri=https%3A%2F%2Fsoulsync-tidal.home.wueestry.com%2Ftidal%2Fcallback&response_type=code&scope=user.read%20playlists.read%20collection.read&geo=CH&campaignId=default
+
+
+https://login.tidal.com/authorize?client_id=lf9oEnUUxA1qoRLF&code_challenge=f6uEMEGeDmRZP737fK0tbUlt3y-TaECmkU-2sK7b-Wc&code_challenge_method=S256&prompt=consent&redirect_uri=https%3A%2F%2Fsoulsync-tidal.home.wueestry.com%2Ftidal%2Fcallback&response_type=code&scope=user.read%20playlists.read%20collection.read&geo=CH&campaignId=default
+
+
+https://soulsync-tidal.home.wueestry.com/tidal/callback?code=eyJraWQiOiJ2OU1GbFhqWSIsImFsZyI6IkVTMjU2In0.eyJ0eXBlIjoibzJfY29kZSIsInVpZCI6MjA5MzIzNTM3LCJzY29wZSI6InBsYXlsaXN0cy5yZWFkIGNvbGxlY3Rpb24ucmVhZCB1c2VyLnJlYWQiLCJleHAiOjE3ODk3OTU5OTEsImNhbGxiYWNrVXJpSWQiOiJodHRwczovL3NvdWxzeW5jLXRpZGFsLmhvbWUud3VlZXN0cnkuY29tL3RpZGFsL2NhbGxiYWNrIiwiY2lkIjozNDI1NywiY2hhbGxlbmdlSWQiOiI4ZWU1ZDgyNS0yMzgzLTRjZDAtODk1NC1jZjdjNzMwMTU0NDQiLCJ1Z3YiOjAsImlzcyI6Imh0dHBzOi8vYXV0aC50aWRhbC5jb20vdjEifQ.zMjpVxhN9jQ-4mbwrHeWPFbzKbqGKLKFpbUlH6r1Qb1Q_lB8_Er8IcEtdqXaYF8cZrVP1vL81LKU_l9sRLTS8w&state=na
+
+
+e6f3df2991aff1eda09b1cb15373e9a8238da22483b1c8df817d19cfea43736b
+
+
+server:
+  connections:
+    forgejo:
+      url: https://forgejo.home.wueestry.com/
+      uuid: 63646232-6165-6666-6630-376530313735
+      token: cdb2aefff07e01751f54abd234d6eaa928811679
+
+
+docker compose exec --user git server forgejo forgejo-cli actions register --name home-runner --secret "$SECRET"
+
+
+
+[server]
+APP_DATA_PATH = /data/gitea
+DOMAIN = forgejo.home.wueestry.com
+SSH_DOMAIN = forgejo.home.wueestry.com
+HTTP_PORT = 3000
+ROOT_URL = https://forgejo.home.wueestry.com/
+DISABLE_SSH = false
+SSH_PORT = 22
+SSH_LISTEN_PORT = 22
+LFS_START_SERVER = true
+LFS_JWT_SECRET = xxxxx
+OFFLINE_MODE = true
+
+
